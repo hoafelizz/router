@@ -1,5 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+// import { Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 //Components
 import Header from './Header';
@@ -17,15 +22,15 @@ class Layout extends React.Component{
                 <Nav />
                 <Header />
                 <Router>
-                    <div className="innerPage">
-                        <Route path="/" component={Index} />
-                        <Route path="/about" component={About} />
+                    <div>
+                        <div className="innerPage">
+                            <Link to="/">Home</Link>
+                            <Link to="/about">About</Link>
+                        </div>
+                        <Route exact path="/" component={Index}/>
+                        <Route path="/about" component={About}/>
                     </div>
                 </Router>
-                <Switch>
-                    <Route exact path='/' component={Index}/>
-                    <Route path='/about' component={About}/>
-                </Switch>
                 <hr/>
                 <Footer />
             </div>
